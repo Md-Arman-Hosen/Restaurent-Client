@@ -8,7 +8,7 @@ const Featured = () => {
             subHeading={"check it out"}
             heading={"Featured item"}
             ></SectionTitle>
-            <div className="md: flex justify-center items-center pb-20 pt-12 px-36 bg-slate-500 bg-opacity-40">
+            <div className="md:flex justify-center items-center pb-20 pt-12 px-36 bg-slate-500 bg-opacity-40">
                 <div>
                     <img src={featuredimg} alt="" />
                 </div>
