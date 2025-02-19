@@ -6,10 +6,15 @@ import ChefRecommends from "./ChefRecommends";
 import Featured from "./Featured";
 import PopularMenu from "./PopularMenu"
 import Testimonial from "./Testimonial";
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Food Craving | Home</title>
+            </Helmet>
+
             <Banner></Banner>
             <Catagory></Catagory>
             <CardWithImgOverlay></CardWithImgOverlay>

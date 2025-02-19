@@ -1,3 +1,5 @@
+// import Cover from "../Shared/Cover";
+// import chefService from "../../assets/home/chef-service.jpg"
 const CardWithImgOverlay = () => {
     return (
         <div className="chef-service w-full">
@@ -10,6 +12,13 @@ const CardWithImgOverlay = () => {
             <div className="w-10 pt-28">
             </div>
         </div>
+        // <div>
+        //     <Cover
+        //     img={chefService}
+        //     title="Food Craving"
+        //     subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, cupiditate sapiente. Quos nemo dicta debitis, possimus ullam earum quam reiciendis incidunt nostrum nulla consequuntur deleniti quis, quisquam distinctio laudantium officiis?"
+        //     ></Cover>
+        // </div>
     );
 };
 
