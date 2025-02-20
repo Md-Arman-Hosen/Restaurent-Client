@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-const UseMenu = () => {
+const useMenu = () => {
     const [menu, setMenu] = useState([])
     const [loading ,setloading] = useState(true);
     useEffect(() => {
-        fetch('menu.json')
+        fetch('http://localhost:5000/menu')
             .then(res => res.json())
             .then(data => {
                 setMenu(data);
@@ -14,4 +14,5 @@ const UseMenu = () => {
     return[menu, loading]
 };
 
-export default UseMenu;
+export default useMenu;
+

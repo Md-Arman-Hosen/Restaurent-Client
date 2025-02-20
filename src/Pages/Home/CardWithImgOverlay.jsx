@@ -1,5 +1,4 @@
-// import Cover from "../Shared/Cover";
-// import chefService from "../../assets/home/chef-service.jpg"
+
 const CardWithImgOverlay = () => {
     return (
         <div className="chef-service w-full">

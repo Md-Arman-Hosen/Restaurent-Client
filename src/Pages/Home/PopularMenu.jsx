@@ -12,7 +12,6 @@ const PopularMenu = () => {
             subHeading={"Popular items"}
             ></SectionTitle>
            <MenuCatagory items={popular} ></MenuCatagory>
-           <button className="btn btn-outline border-0 border-b-4 uppercase text-xl">View full menu</button>
         </section>
     );
 };
