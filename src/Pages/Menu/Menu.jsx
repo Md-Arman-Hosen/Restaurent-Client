@@ -21,49 +21,16 @@ const Menu = () => {
                 <title>Food Craving | Menu</title>
             </Helmet>
 
-            {/* Cover */}
-            <Cover img={menuimg} title={"Our Menu"} subtitle={"Would You Like To Try a Dish"}></Cover>
-
-             {/* Main Cover */}
-            <SectionTitle
-               subHeading={"Don't Miss"}
-               heading={"Today's Offer"}
-            ></SectionTitle>
-
-             {/* Offered menu items*/}
+            <Cover img={menuimg} title="our menu"></Cover>
+            {/* main cover */}
+            <SectionTitle subHeading="Don't Miss" heading="Today's Offer"></SectionTitle>
+            {/* offered menu items */}
             <MenuCatagory items={offered}></MenuCatagory>
-
-             {/* dessert menu items*/}
-             <MenuCatagory 
-             items={desserts} 
-             title={"Desert"} 
-             subtitle={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugit commodi autem,"} 
-             img={dessertimg}
-             ></MenuCatagory>
-
-             {/* Pizza menu items*/}
-             <MenuCatagory 
-             items={pizza} 
-             title={"Pizza"} 
-             subtitle={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugit commodi autem,"} 
-             img={pizzaimg}
-             ></MenuCatagory>
-
-             {/* Salad menu items*/}
-             <MenuCatagory 
-             items={salad} 
-             title={"salad"} 
-             subtitle={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugit commodi autem,"} 
-             img={saladimg}
-             ></MenuCatagory>
-
-             {/* Soup menu items*/}
-             <MenuCatagory 
-             items={soup} 
-             title={"soup"} 
-             subtitle={"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum fugit commodi autem,"} 
-             img={soupimg}
-             ></MenuCatagory>
+            {/* dessert menu items  */}
+            <MenuCatagory items={desserts} subtitle={"lorem10"} title="dessert" img={dessertimg}></MenuCatagory>
+            <MenuCatagory items={pizza} subtitle={"lorem10"} title={"pizza"} img={pizzaimg}></MenuCatagory>
+            <MenuCatagory items={salad} subtitle={"lorem10"} title={"salad"} img={saladimg}></MenuCatagory>
+            <MenuCatagory items={soup} subtitle={"lorem10"} title={"soup"} img={soupimg}></MenuCatagory>
         </section>
     );
 };
