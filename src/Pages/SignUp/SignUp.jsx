@@ -1,20 +1,45 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from 'sweetalert2'
 
 const SignUp = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const {createUser} = useContext(AuthContext);
-
+    const { register, handleSubmit,reset, formState: { errors } } = useForm();
+    const {createUser,updateUserProfile} = useContext(AuthContext);
+    const navigate = useNavigate ();
     const onSubmit = data => {
         console.log(data);
         createUser(data.email, data.password)
         .then (result => {
             const loggedUser = result.user;
             console.log(loggedUser);
+            updateUserProfile (data.name, data.photoURL)
+            .then (()=>{
+                console.log('user profile info updated')
+                reset();
+                 Swal.fire({
+                                    title: "User Profile info Updated SuccessFully.",
+                                    showClass: {
+                                      popup: `
+                                        animate__animated
+                                        animate__fadeInUp
+                                        animate__faster
+                                      `
+                                    },
+                                    hideClass: {
+                                      popup: `
+                                        animate__animated
+                                        animate__fadeOutDown
+                                        animate__faster
+                                      `
+                                    }
+                                  });
+                                  navigate('/');
+            })
+            .catch (error => console.log(error))
         })
     };
 
@@ -37,11 +62,19 @@ const SignUp = () => {
                     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
 
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+
                             <div className="form-control">
                                 <label className="label"> <span className="label-text">Name</span></label>
                                 <input type="text" {...register("name", { required: true })} name="name" placeholder="Name" className="input input-bordered" />
                                 {errors.name && <span className="text-red-600 pt-2">Name is required</span>}
                             </div>
+
+                            <div className="form-control">
+                                <label className="label"> <span className="label-text">Photo URL</span></label>
+                                <input type="text" {...register("photoURL", { required: true })} name="photoURL" placeholder="photoURL" className="input input-bordered" />
+                                {errors.name && <span className="text-red-600 pt-2">photoURL is required</span>}
+                            </div>
+
                             <div className="form-control">
                                 <label className="label"> <span className="label-text">Email</span></label>
                                 <input type="email" {...register("email")} name="email" placeholder="email" className="input input-bordered" required />
@@ -66,7 +99,7 @@ const SignUp = () => {
                             </div>
 
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn btn-primary">Sign Up</button>
                                 <p> <small> Already Have a Account? <Link to="/login">Login Now</Link> </small> </p>
                             </div>
                         </form>

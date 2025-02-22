@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
 import { app } from "../Firebase/firebase.config";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext(null);
@@ -25,6 +25,11 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
 
     }
+    const updateUserProfile = ( name, photo ) =>{
+         return updateProfile (auth.currentUser,{
+            displayName: name, photoURL: photo
+         });
+    }
 
 useEffect(()=>{
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
@@ -42,6 +47,7 @@ useEffect(()=>{
         createUser,
         signIn,
         logOut,
+        updateUserProfile,
     }
     return (
         <AuthContext.Provider value={authInfo}>
