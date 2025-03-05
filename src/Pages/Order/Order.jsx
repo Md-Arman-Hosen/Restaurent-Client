@@ -3,10 +3,11 @@ import orderCoverImg from '../../assets/shop/banner2.jpg'
 import Cover from '../Shared/Cover'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import useMenu from '../../Hooks/useMenu';
+
 import OrderTab from './OrderTab';
 import { useParams } from 'react-router';
 import { Helmet } from 'react-helmet-async';
+import useMenu from '../../Hooks/UseMenu';
 
 const Order = () => {
     const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks'];
@@ -26,7 +27,7 @@ const Order = () => {
     return (
         <div>
             <Helmet>
-                <title>Bistro Boss | Order Food</title>
+                <title>Food Craving | Order Food</title>
             </Helmet>
             <Cover img={orderCoverImg} title="Order Food"></Cover>
             <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>

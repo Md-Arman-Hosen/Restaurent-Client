@@ -17,15 +17,14 @@ const Navbar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/menu">Our Menu</Link></li>
         <li><Link to="/order/salad">Order Food</Link></li>
-        <li><Link to="/secret">Secret</Link></li>
-        <li>
+        {/* <li>
           <Link to="/dashboard/cart">
             <button className="btn">
               <FaShoppingCart className="mr-2"></FaShoppingCart>
               <div className="badge badge-secondary">+{cart.length}</div>
             </button>
           </Link>
-        </li>
+        </li> */}
         {
           user ? <>
             <span>{user?.displayName}</span>
@@ -70,7 +69,12 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get Started</a>
+      <Link to="/dashboard/cart">
+            <button className="btn">
+              <FaShoppingCart className="mr-2"></FaShoppingCart>
+              <div className="badge badge-secondary">+{cart.length}</div>
+            </button>
+          </Link>
       </div>
     </div>
   );
